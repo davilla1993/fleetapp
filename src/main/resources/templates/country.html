@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:th="http://www.thymeleaf.org" lang="en">
 
 <head>
   <meta charset="utf-8">
@@ -23,19 +24,6 @@
   <link href="css/style.css" rel="stylesheet">
   <link href="css/style-responsive.css" rel="stylesheet" />
 
-  <!-- HTML5 shim and Respond.js IE8 support of HTML5 -->
-  <!--[if lt IE 9]>
-      <script src="js/html5shiv.js"></script>
-      <script src="js/respond.min.js"></script>
-      <script src="js/lte-ie7.js"></script>
-    <![endif]-->
-
-    <!-- =======================================================
-      Theme Name: NiceAdmin
-      Theme URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
-      Author: BootstrapMade
-      Author URL: https://bootstrapmade.com
-    ======================================================= -->
 </head>
 
 <body>
@@ -49,7 +37,7 @@
       </div>
 
       <!--logo start-->
-      <a href="index.html" class="logo">Nice <span class="lite">Admin</span></a>
+      <a href="@{/index}" class="logo">FleetApp <span class="lite">Admin</span></a>
       <!--logo end-->
 
       <div class="nav search-row" id="top_menu">
@@ -391,7 +379,7 @@
       <section class="wrapper">
         <div class="row">
           <div class="col-lg-12">
-            <h3 class="page-header"><i class="fa fa fa-bars"></i> Pages</h3>
+            <h3 class="page-header"><i class="fa fa fa-bars"></i>List Of Countries</h3>
             <ol class="breadcrumb">
               <li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
               <li><i class="fa fa-bars"></i>Pages</li>
@@ -400,7 +388,36 @@
           </div>
         </div>
         <!-- page start-->
-      <h1>List of Countries</h1>
+      
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal">New Country</button>
+      
+       <table class="table">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Code</th>
+                    <th>Continent</th>
+                    <th>Capital</th>
+                    <th>Nationality</th>
+                    <th>Description</th>
+                  </tr> 
+                </thead>
+                <tbody>
+                
+                  <tr th:each="country:${countries}">
+                  
+                    <td th:text="${country.id}"></td>
+                    <td th:text="${country.code}"></td>
+                    <td th:text="${country.continent}"></td> 
+                    <td th:text="${country.capital}"></td>
+                    <td th:text="${country.nationality}"></td>
+                    <td th:text="${country.description}"></td>
+                                       
+                  </tr>
+                  
+                </tbody>
+         </table>
+           
         <!-- page end-->
       </section>
     </section>
@@ -418,6 +435,63 @@
     </div>
   </section>
   <!-- container section end -->
+  
+  <!--  Start of Modal -->
+  <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      
+        <form th:action="@{/countries/addNew}" method="post">
+        
+         <div class="form-group">
+            <label for="message-text" class="col-form-label">Description:</label>
+            <textarea class="form-control" id="message-text" name="description"></textarea>
+          </div>
+        
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Capital:</label>
+            <input type="text" class="form-control" id="recipient-name" name="capital">
+          </div>
+          
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Code:</label>
+            <input type="text" class="form-control" id="recipient-name" name="code">
+          </div>
+          
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Continent:</label>
+            <input type="text" class="form-control" id="recipient-name" name="continent">
+          </div>
+          
+         <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Nationality:</label>
+            <input type="text" class="form-control" id="recipient-name" name="nationality">
+          </div>
+           
+          <div class="form-group">
+          	<button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  
+  <!-- End of Modal -->
+  
+  
+
   <!-- javascripts -->
   <script src="js/jquery.js"></script>
   <script src="js/bootstrap.min.js"></script>

@@ -50,5 +50,6 @@ public class VehicleMaintenance extends Auditable<String> {
 	private Integer supplierid;
 	
 	private String remarks;
-	
+
+
 }

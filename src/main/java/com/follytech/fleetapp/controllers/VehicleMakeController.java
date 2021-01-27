@@ -9,7 +9,7 @@ public class VehicleMakeController {
 	@GetMapping("/vehiclemakes")
 	public String getVehicleMakes() {
 		
-		return "vehiclemake";
+		return "/vehiclemake";
 	}
 
 }

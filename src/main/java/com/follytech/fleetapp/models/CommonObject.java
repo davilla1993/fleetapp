@@ -58,10 +58,5 @@ public class CommonObject {
 		return "CommonObject [id=" + id + ", description=" + description + ", details=" + details + "]";
 	}
 	
-	
-	
-	
-	
-	
 
 }

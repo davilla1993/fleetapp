@@ -9,7 +9,7 @@ public class StateController {
 	@GetMapping("/states")
 	public String getStates() {
 		
-		return "/statet";
+		return "/state";
 		
 	}
 
