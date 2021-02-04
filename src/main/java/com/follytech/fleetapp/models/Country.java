@@ -20,7 +20,7 @@ public class Country {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	private String code;
-	private String capital;
+	private String name;
 	private String description; 
 	private String nationality;
 	private String continent;
@@ -33,55 +33,48 @@ public class Country {
 	}
 	
 	
-	public Country(String code, String capital, String description, String nationality, String continent) {
+	public Country(String code, String name, String description, String nationality, String continent) {
 
 		this.code = code;
-		this.capital = capital;
+		this.name = name;
 		this.description = description;
 		this.nationality = nationality;
 		this.continent = continent;
 	}
 
-
-	public Country(String code, String capital, String description, String nationality, String continent,
+	public Country(String code, String name, String description, String nationality, String continent,
 			List<State> states) {
 
 		this.code = code;
-		this.capital = capital;
+		this.name = name;
 		this.description = description;
 		this.nationality = nationality;
 		this.continent = continent;
 		this.states = states;
 	}
 
-
 	public Integer getId() {
 		return id;
 	}
-
 
 	public void setId(Integer id) {
 		this.id = id;
 	}
 
-
 	public String getCode() {
 		return code;
 	}
-
 
 	public void setCode(String code) {
 		this.code = code;
 	}
 
-
-	public String getCapital() {
-		return capital;
+	public String getName() {
+		return name;
 	}
 
-
-	public void setCapital(String capital) {
-		this.capital = capital;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 
